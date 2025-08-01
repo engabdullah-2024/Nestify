@@ -36,10 +36,10 @@ export default function AboutPage() {
       >
         <h2 className="text-2xl font-semibold mb-3">Our Story</h2>
         <p className="text-blue-800 dark:text-blue-200 leading-relaxed text-lg">
-          Our family's journey began in 2003 with a promise of love, faith, and unity. Over time,
-          we've grown into a strong and connected family of 9. Guided by our loving parents, we've
+          Our family&apos;s journey began in 2003 with a promise of love, faith, and unity. Over time,
+          we&apos;ve grown into a strong and connected family of 9. Guided by our loving parents, we&apos;ve
           embraced joy, learned from challenges, and shared beautiful memories together. Every moment,
-          every laugh, every prayer — they all shape the home we proudly call Nestify .
+          every laugh, every prayer — they all shape the home we proudly call <strong>Nestify</strong>.
         </p>
       </motion.section>
 
@@ -61,15 +61,21 @@ export default function AboutPage() {
           </li>
           <li>
             <div className="font-semibold text-blue-800 dark:text-blue-200">2004 - First Child</div>
-            <p className="text-blue-700 dark:text-blue-400">Welcomed Eng Abdalla — the first light of The9Nest.</p>
+            <p className="text-blue-700 dark:text-blue-400">
+              Welcomed Eng Abdalla — the first light of The9Nest.
+            </p>
           </li>
           <li>
             <div className="font-semibold text-blue-800 dark:text-blue-200">2005–2015 - Expansion</div>
-            <p className="text-blue-700 dark:text-blue-400">One by one, our family grew into a full team of 9.</p>
+            <p className="text-blue-700 dark:text-blue-400">
+              One by one, our family grew into a full team of 9.
+            </p>
           </li>
           <li>
             <div className="font-semibold text-blue-800 dark:text-blue-200">2024 - Family Website</div>
-            <p className="text-blue-700 dark:text-blue-400">Built this digital home to preserve our bond and memories.</p>
+            <p className="text-blue-700 dark:text-blue-400">
+              Built this digital home to preserve our bond and memories.
+            </p>
           </li>
         </ul>
       </motion.section>
@@ -88,15 +94,21 @@ export default function AboutPage() {
         <ul className="grid md:grid-cols-3 gap-6 text-center">
           <li className="bg-blue-50 dark:bg-gray-800 p-6 rounded-xl shadow">
             <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 mb-2">Faith</h3>
-            <p className="text-blue-700 dark:text-blue-400">Our strength begins with faith and prayer.</p>
+            <p className="text-blue-700 dark:text-blue-400">
+              Our strength begins with faith and prayer.
+            </p>
           </li>
           <li className="bg-blue-50 dark:bg-gray-800 p-6 rounded-xl shadow">
             <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 mb-2">Unity</h3>
-            <p className="text-blue-700 dark:text-blue-400">We grow and stand together in love and peace.</p>
+            <p className="text-blue-700 dark:text-blue-400">
+              We grow and stand together in love and peace.
+            </p>
           </li>
           <li className="bg-blue-50 dark:bg-gray-800 p-6 rounded-xl shadow">
             <h3 className="text-xl font-semibold text-blue-800 dark:text-blue-200 mb-2">Respect</h3>
-            <p className="text-blue-700 dark:text-blue-400">We honor each other with kindness and dignity.</p>
+            <p className="text-blue-700 dark:text-blue-400">
+              We honor each other with kindness and dignity.
+            </p>
           </li>
         </ul>
       </motion.section>
