@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,24 +18,35 @@ const members = [
     name: "Dr Ali Nor",
     role: "TB Specialist",
     image: "/ali.jpg",
-    // Fix cropping by shifting image focus to top (shows head)
     objectPosition: "top",
+    bio: "Dr Ali Nor is a dedicated TB specialist with over 15 years of experience in treating infectious diseases.",
   },
   {
     name: "Amina Ibrahim Hayd",
     role: "Mother",
     image: "/amina.jpg",
     objectPosition: "top",
+    bio: "Amina is the heart of the family, nurturing everyone with her warmth and wisdom.",
   },
   {
     name: "Eng Abdalla Ali",
     role: "Software Engineer",
     image: "/eng.jpg",
     objectPosition: "center",
+    bio: "Eng Abdalla Ali is a senior software engineer passionate about building scalable web applications.",
+  },
+    {
+    name: "Mumtaz Ali",
+    role: "Yaraanka",
+    image: "/mumtaz.jpg",
+    objectPosition: "top",
+    bio: "Mumtaz is the youngest girl in the family.",
   },
 ];
 
 export default function MembersPage() {
+  const [selectedMember, setSelectedMember] = useState<typeof members[0] | null>(null);
+
   return (
     <main className="min-h-screen px-4 pt-24 pb-12 bg-white text-blue-900 dark:bg-gray-900 dark:text-blue-200 transition-colors duration-500">
       {/* Header */}
@@ -77,7 +89,10 @@ export default function MembersPage() {
                 </CardDescription>
               </CardContent>
               <CardFooter className="flex justify-center pb-6">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
+                <Button
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6"
+                  onClick={() => setSelectedMember(members[index])}
+                >
                   View Profile
                 </Button>
               </CardFooter>
@@ -85,6 +100,49 @@ export default function MembersPage() {
           </motion.div>
         ))}
       </div>
+
+      {/* Modal for Profile Summary */}
+      <AnimatePresence>
+        {selectedMember && (
+          <motion.div
+            key="modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50"
+            onClick={() => setSelectedMember(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white dark:bg-gray-900 rounded-2xl max-w-md w-full p-6 shadow-xl"
+            >
+              <div className="relative w-40 h-40 mx-auto rounded-full overflow-hidden mb-6">
+                <Image
+                  src={selectedMember.image}
+                  alt={selectedMember.name}
+                  fill
+                  style={{ objectFit: "cover", objectPosition: selectedMember.objectPosition }}
+                />
+              </div>
+              <h2 className="text-3xl font-bold text-center mb-1 text-blue-900 dark:text-blue-200">
+                {selectedMember.name}
+              </h2>
+              <p className="text-center text-blue-600 dark:text-blue-400 mb-4">{selectedMember.role}</p>
+              <p className="text-center text-gray-700 dark:text-gray-300 mb-6 px-4">
+                {selectedMember.bio}
+              </p>
+              <div className="flex justify-center">
+                <Button onClick={() => setSelectedMember(null)} className="px-6 bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600">
+                  Close
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }
