@@ -44,14 +44,17 @@ export default function Navbar() {
           <ModeToggle />
         </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden text-blue-700 dark:text-blue-300 text-2xl"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        {/* Mobile Controls: Dark Mode Toggle + Hamburger */}
+        <div className="md:hidden flex items-center space-x-4 text-blue-700 dark:text-blue-300">
+          <ModeToggle />
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+            className="text-2xl"
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -77,11 +80,6 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-
-            {/* Mode Toggle on Mobile */}
-            <div className="flex justify-end px-6 py-4">
-              <ModeToggle />
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
